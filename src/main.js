@@ -5,25 +5,22 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import config from './config';
-
-firebase.initializeApp(config);
-
-const database = firebase.database();
-
-const data = database.ref('game/');
-let json;
-
-data.once('value', (snapshot) => {
-	json = snapshot.val();
-	console.log(json);
-});
+import store from './store';
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
-	el: '#app',
-	router,
-	template: '<App/>',
-	components: { App },
+firebase.initializeApp(config);
+const database = firebase.database();
+const data = database.ref('game/');
+
+data.once('value', (snapshot) => {
+	store.init(snapshot.val());
+
+	/* eslint-disable no-new */
+	new Vue({
+		el: '#app',
+		router,
+		template: '<App/>',
+		components: { App },
+	});
 });
