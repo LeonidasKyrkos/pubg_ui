@@ -1,8 +1,7 @@
 <template>
-	<div id="app">
-		<img src="./assets/logo.png">
+	<article id="app" class="wrapper">
 		<router-view/>
-	</div>
+	</article>
 </template>
 
 <script>
@@ -10,3 +9,11 @@ export default {
 	name: 'app',
 };
 </script>
+
+<style lang="scss">
+@import './styles/main.scss';
+
+.wrapper {
+	padding: 10px;
+}
+</style>

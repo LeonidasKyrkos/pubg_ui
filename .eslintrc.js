@@ -41,5 +41,7 @@ module.exports = {
 		quotes: 0,
 		'eol-last': 0,
 		'no-console': 0,
+		'prefer-default-export': 0,
+		'no-unused-vars': 0,
 	}
 }
